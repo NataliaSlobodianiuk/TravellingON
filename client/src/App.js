@@ -201,7 +201,7 @@ class App extends Component {
                         </div>
                         <div className="form-group">
                             <label for="newSightDescription">Description</label>
-                            <textarea name="newSightDescription" placeholder="Type some sight description (option)"
+                            <textarea name="newSightDescription" placeholder="Type some sight description (optional)"
                                 ref={input => { this.newSightDescription = input }}
                                 className="form-control" rows="5" />
                         </div>
