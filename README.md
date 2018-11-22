@@ -135,6 +135,6 @@ Some KPI is provided by Firebase Authentication:
 - when user last logged in;
 - user UID.
 
-For the rest I intend to use Google Analytics.
+For the rest I use Google Analytics.
 
 You can find some screenshots under `/documentation`.
