@@ -51,7 +51,7 @@ const selectSights = (res, condition = (sight) => { return true; }) => {
 exports.insertSight = functions.https.onRequest((req, res) => {
     return cors(req, res, () => {
         if (req.method !== 'POST') {
-            return res.status(401).json({
+            return res.status(405).json({
                 message: 'Not allowed'
             });
         }
@@ -76,7 +76,7 @@ exports.insertSight = functions.https.onRequest((req, res) => {
 exports.deleteSight = functions.https.onRequest((req, res) => {
     return cors(req, res, () => {
         if (req.method !== 'DELETE') {
-            return res.status(401).json({
+            return res.status(405).json({
                 message: 'Not allowed'
             });
         }
@@ -97,7 +97,7 @@ exports.deleteSight = functions.https.onRequest((req, res) => {
 exports.selectAllSights = functions.https.onRequest((req, res) => {
     return cors(req, res, () => {
         if (req.method !== 'GET') {
-            return res.status(404).json({
+            return res.status(405).json({
                 message: 'Not allowed'
             });
         }
@@ -109,7 +109,7 @@ exports.selectAllSights = functions.https.onRequest((req, res) => {
 exports.selectSightsByName = functions.https.onRequest((req, res) => {
     return cors(req, res, () => {
         if (req.method !== 'GET') {
-            return res.status(404).json({
+            return res.status(405).json({
                 message: 'Not allowed'
             });
         }
@@ -129,7 +129,7 @@ exports.selectSightsByName = functions.https.onRequest((req, res) => {
 exports.updateSight = functions.https.onRequest((req, res) => {
     return cors(req, res, () => {
         if (req.method !== 'POST') {
-            return res.status(404).json({
+            return res.status(405).json({
                 message: 'Not allowed'
             });
         }
