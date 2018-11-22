@@ -160,10 +160,10 @@ class Sights extends Component {
                                         </Consumer>
                                         <Consumer>
                                             {
-                                                ({ state }) => state.currentUser && state.currentUser.email === 'admin@admin.com'
+                                                ({ state }) => state.currentUser
                                                     ?
-                                                    <button onClick={(e) => this.removeSight(sight.id)} type="button" className="btn btn-default btn-sm">
-                                                        Remove
+                                                    <button onClick={(e) => this.updateSightInProgress(sight)} type="button" className="btn btn-default btn-sm">
+                                                        Update
                                                     </button>
                                                     :
                                                     null
@@ -171,10 +171,10 @@ class Sights extends Component {
                                         </Consumer>
                                         <Consumer>
                                             {
-                                                ({ state }) => state.currentUser
+                                                ({ state }) => state.currentUser && state.currentUser.email === 'admin@admin.com'
                                                     ?
-                                                    <button onClick={(e) => this.updateSightInProgress(sight)} type="button" className="btn btn-default btn-sm">
-                                                        Update
+                                                    <button onClick={(e) => this.removeSight(sight.id)} type="button" className="btn btn-default btn-sm">
+                                                        Remove
                                                     </button>
                                                     :
                                                     null

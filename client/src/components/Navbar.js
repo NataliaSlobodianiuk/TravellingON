@@ -19,12 +19,14 @@ const Navbar = props => {
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><a onClick={() => handleLogout(context)}>Logout</a></li>
+                    <li style={{ float: 'right' }}><p>You are logged in as {state.currentUser.email}</p></li>
                 </ul>
                 :
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/login">Login</Link></li>
                     <li><Link to="/signup">Create Account</Link></li>
+                    <li style={{ float: 'right' }}><p>You are not logged in</p></li>
                 </ul>
         )}
     </Consumer>

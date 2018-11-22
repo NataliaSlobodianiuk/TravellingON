@@ -27,15 +27,7 @@ class App extends Component {
                         <Navbar />
                         <FlashMessage />
 
-                        <Route exact path="/" component={() =>
-                            <div>
-                                <Consumer>
-                                    {
-                                        ({ state }) => state.currentUser ? <p>You are logged in as {state.currentUser.email}.</p> : <p>You are not logged in.</p>
-                                    }
-                                </Consumer>
-                                <Sights />
-                            </div>} />
+                        <Route exact path="/" component={() => <Sights />} />
                         <Route exact path="/login" component={() => <Login />} />
                         <Route exact path="/signup" component={() => <Signup />} />
                         <Route exact path="/loggedOut" component={() => <p className="content">You've logged out.</p>} />
