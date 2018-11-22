@@ -213,7 +213,6 @@ class Sights extends Component {
 
         return (
             <div className="container">
-                <h1>TravellingON</h1>
                 <p className="message text-danger">{message}</p>
                 <div className="content">
 

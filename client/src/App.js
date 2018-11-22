@@ -24,6 +24,7 @@ class App extends Component {
             <AppProvider>
                 <Router>
                     <div className="container">
+                        <h1>TravellingON</h1>
                         <Navbar />
                         <FlashMessage />
 
