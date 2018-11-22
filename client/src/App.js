@@ -7,9 +7,11 @@ import {
 
 import { withAlert } from 'react-alert'
 
+import ReactGA from 'react-ga';
+
 import './App.css'
 
-import AppProvider, { Consumer } from './components/AppProvider';
+import AppProvider from './components/AppProvider';
 
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -17,6 +19,9 @@ import Navbar from './components/Navbar';
 import FlashMessage from './components/FlashMessage';
 
 import Sights from './components/Sights';
+
+ReactGA.initialize('UA-129720588-1');
+ReactGA.pageview('/');
 
 class App extends Component {
     render() {
