@@ -10,7 +10,7 @@ const Navbar = props => {
     const handleLogout = context => {
         auth.logout();
         context.destroySession();
-        props.history.push('/loggedOut');
+        props.history.push('/');
     };
 
     return <Consumer>

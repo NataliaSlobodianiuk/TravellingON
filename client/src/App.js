@@ -31,7 +31,6 @@ class App extends Component {
                         <Route exact path="/" component={() => <Sights />} />
                         <Route exact path="/login" component={() => <Login />} />
                         <Route exact path="/signup" component={() => <Signup />} />
-                        <Route exact path="/loggedOut" component={() => <p className="content">You've logged out.</p>} />
                         <Route exact path="/accountCreated" component={() => <p className="content">Account created. Would you like to <Link to="/login">log in</Link>?</p>} />
                     </div>
                 </Router>
