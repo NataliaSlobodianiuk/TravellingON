@@ -4,6 +4,8 @@ A **serverless** application (**firebase(db & cloud functions)** + **react(clien
 
 Helps travellers to go on a trip. Gives an ability to look through existing sights and add new ones. Also to join already suggested trips and suggest new ones.
 
+Want to try it out? I hosted it on Google Cloud. Here goes the link: https://travellingon-client.appspot.com/.
+
 ---
 # Server
 
