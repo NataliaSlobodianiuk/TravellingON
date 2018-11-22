@@ -5,6 +5,8 @@ import {
     Link
 } from 'react-router-dom';
 
+import { withAlert } from 'react-alert'
+
 import './App.css'
 
 import AppProvider, { Consumer } from './components/AppProvider';
@@ -45,4 +47,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default withAlert(App)

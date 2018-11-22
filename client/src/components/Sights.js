@@ -1,6 +1,10 @@
 ﻿import React, { Component } from 'react'
 import axios from 'axios'
 
+import { withAlert } from 'react-alert'
+
+import { Consumer } from './AppProvider'
+
 const noSightsFoundMessage = 'No sights found. '
 const sightsFoundMessage = 'Amount of sights found: '
 const newSightAddedMessage = 'New sight added. '
@@ -15,7 +19,6 @@ class Sights extends Component {
 
         this.state = {
             sights: [],
-            canUpdate: true,
             updatingSight: null,
             message: ''
         }
@@ -119,7 +122,6 @@ class Sights extends Component {
     renderSights() {
         let num = 1
         const sights = this.state.sights
-        const canUpdate = this.state.canUpdate
 
         return (
             sights.length > 0 &&
@@ -145,17 +147,39 @@ class Sights extends Component {
                                     <td style={{ width: '40%' }} >{sight.description}</td>
 
                                     <td>
-                                        <button onClick={(e) => this.removeSight(sight.id)} type="button" className="btn btn-default btn-sm">
-                                            Remove
-                                        </button>
-                                        {canUpdate
-                                            ?
-                                            <button onClick={(e) => this.updateSightInProgress(sight)} type="button" className="btn btn-default btn-sm">
-                                                Update
-                                            </button>
-                                            :
-                                            null
-                                        }
+                                        <Consumer>
+                                            {
+                                                ({ state }) => state.currentUser
+                                                    ?
+                                                    <button onClick={(e) => this.props.alert.show('Not implemented yet!') } type="button" className="btn btn-default btn-sm">
+                                                        View Trips
+                                                    </button>
+                                                    :
+                                                    null
+                                            }
+                                        </Consumer>
+                                        <Consumer>
+                                            {
+                                                ({ state }) => state.currentUser && state.currentUser.email === 'admin@admin.com'
+                                                    ?
+                                                    <button onClick={(e) => this.removeSight(sight.id)} type="button" className="btn btn-default btn-sm">
+                                                        Remove
+                                                    </button>
+                                                    :
+                                                    null
+                                            }
+                                        </Consumer>
+                                        <Consumer>
+                                            {
+                                                ({ state }) => state.currentUser
+                                                    ?
+                                                    <button onClick={(e) => this.updateSightInProgress(sight)} type="button" className="btn btn-default btn-sm">
+                                                        Update
+                                                    </button>
+                                                    :
+                                                    null
+                                            }
+                                        </Consumer>
                                     </td>
                                 </tr>
                             )
@@ -165,10 +189,18 @@ class Sights extends Component {
                 <tfoot>
                     <tr>
                         <td colSpan="4">&nbsp;</td>
-                        <td>
-                            <button onClick={(e) => this.removeAll()}
-                                className="btn btn-default btn-sm">Remove All</button>
-                        </td>
+                        <Consumer>
+                            {
+                                ({ state }) => state.currentUser && state.currentUser.email === 'admin@admin.com'
+                                    ?
+                                    <td>
+                                        <button onClick={(e) => this.removeAll()}
+                                            className="btn btn-default btn-sm">Remove All</button>
+                                    </td>
+                                    :
+                                    null
+                            }
+                        </Consumer>
                     </tr>
                 </tfoot>
             </table>
@@ -185,28 +217,36 @@ class Sights extends Component {
                 <p className="message text-danger">{message}</p>
                 <div className="content">
 
-                    <form ref={input => { this.addForm = input }} onSubmit={this.addSight.bind(this)}>
-                        <div className="form-group">
-                            <label for="newSightName">Name</label>
-                            <input name="newSightName" placeholder="Type sight name"
-                                ref={input => { this.newSightName = input }}
-                                type="text" className="form-control" />
-                        </div>
-                        <div className="form-group">
-                            <label for="newSightLocation">Location</label>
-                            <input name="newSightLocation" placeholder="Type sight location"
-                                ref={input => { this.newSightLocation = input }}
-                                type="text" className="form-control" />
-                        </div>
-                        <div className="form-group">
-                            <label for="newSightDescription">Description</label>
-                            <textarea name="newSightDescription" placeholder="Type some sight description (optional)"
-                                ref={input => { this.newSightDescription = input }}
-                                className="form-control" rows="5" />
-                        </div>
-                        <button className="btn btn-primary">Add</button>
-                    </form>
-
+                    <Consumer>
+                        {
+                            ({ state }) => state.currentUser
+                                ?
+                                <form ref={input => { this.addForm = input }} onSubmit={this.addSight.bind(this)}>
+                                    <div className="form-group">
+                                        <label for="newSightName">Name</label>
+                                        <input name="newSightName" placeholder="Type sight name"
+                                            ref={input => { this.newSightName = input }}
+                                            type="text" className="form-control" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label for="newSightLocation">Location</label>
+                                        <input name="newSightLocation" placeholder="Type sight location"
+                                            ref={input => { this.newSightLocation = input }}
+                                            type="text" className="form-control" />
+                                    </div>
+                                    <div className="form-group">
+                                        <label for="newSightDescription">Description</label>
+                                        <textarea name="newSightDescription" placeholder="Type some sight description (optional)"
+                                            ref={input => { this.newSightDescription = input }}
+                                            className="form-control" rows="5" />
+                                    </div>
+                                    <button className="btn btn-primary">Add</button>
+                                </form>
+                                :
+                                null
+                        }
+                    </Consumer>
+                    
                     {this.renderSights()}
 
                     {
@@ -242,4 +282,4 @@ class Sights extends Component {
     }
 }
 
-export default Sights
+export default withAlert(Sights)
