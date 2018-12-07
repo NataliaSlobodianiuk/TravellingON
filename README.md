@@ -91,6 +91,8 @@ Also some errors are thrown manually:
 
 I handle these errors on client side. I have a message text-danger paragraph I use to display error messages to a user.
 
+You can find the model under `/documentation`.
+
 ---
 # Security
 I use Firebase Authentication and FirebaseUI library to provide authentication and authorization along with some UI flows.
@@ -119,12 +121,12 @@ For DB (for last 30 days):
 
 For cloud functions:
 - health (for last 30 days):
- - total errors;
- - error groups;
+  * total errors;
+  * error groups;
 - logs (for last 7 days) - both error and info levels;
 - usage (for last 30 days) - total function invocations.
 
-You can find some screenshots under `/documentation`.
+You can find the model and some screenshots under `/documentation`.
 
 ---
 # Telemetry
@@ -137,4 +139,4 @@ Some KPI is provided by Firebase Authentication:
 
 For the rest I use Google Analytics.
 
-You can find some screenshots under `/documentation`.
+You can find the model and some screenshots under `/documentation`.
