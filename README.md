@@ -4,7 +4,11 @@ A **serverless** application (**firebase(db & cloud functions)** + **react(clien
 
 Helps travellers to go on a trip. Gives an ability to look through existing sights and add new ones. Also to join already suggested trips and suggest new ones.
 
-You can find vision and scope description and requirements under `/documentation`.
+You can find "vision and scope" and "requirements" documents under `/documentation`.
+
+You can find wireframes under `/documentation/mockups`.
+You can find mockups under `/documentation/mockups`.
+You can find clickable prototype made with InVision under `/documentation`.
 
 ---
 # Server
