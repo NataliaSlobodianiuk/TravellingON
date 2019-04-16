@@ -8,6 +8,8 @@ You can find "vision and scope" and "requirements" documents under `/documentati
 
 You can find wireframes under `/documentation/mockups`. You can find mockups under `/documentation/mockups`. You can find clickable prototype made with InVision (public share link: https://projects.invisionapp.com/share/EFRGGOO4TCZ) under `/documentation`.
 
+You can find the katalon project with automatic tests under `/automaticTests`
+
 ---
 # Server
 
