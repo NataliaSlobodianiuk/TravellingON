@@ -10,6 +10,8 @@ You can find wireframes under `/documentation/mockups`. You can find mockups und
 
 You can find the katalon project with automatic tests under `/automaticTests`
 
+Auto-Deployment Using Bitbucket and Heroku. Link: https://travellingon.herokuapp.com/
+
 ---
 # Server
 
