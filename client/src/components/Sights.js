@@ -64,8 +64,8 @@ class Sights extends Component {
             })
     }
 
-    removeSight(sightId) {
-        axios.delete(`https://us-central1-travellingon-922b0.cloudfunctions.net/deleteSight?id=${sightId}`)
+    removeSight(sight) {
+        axios.delete(`https://us-central1-travellingon-922b0.cloudfunctions.net/deleteSight?id=${sight.id}`)
             .then((response) => {
                 const sightsCount = response.data.length
 
@@ -173,7 +173,7 @@ class Sights extends Component {
                                             {
                                                 ({ state }) => state.currentUser && state.currentUser.email === 'admin@admin.com'
                                                     ?
-                                                    <button onClick={(e) => this.removeSight(sight.id)} type="button" className="btn btn-default btn-sm">
+                                                    <button onClick={(e) => this.removeSight(sight)} type="button" className="btn btn-default btn-sm">
                                                         Remove
                                                     </button>
                                                     :
